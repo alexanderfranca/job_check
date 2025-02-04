@@ -10,8 +10,8 @@ class JobCheckSpider(scrapy.Spider):
             print("Usage: scrapy crawl job_check <URL>")
             return
 
-    url = sys.argv[1]
-    yield scrapy.Request(url, self.parse)
+        url = sys.argv[1]
+        yield scrapy.Request(url, self.parse)
 
     def parse(self, response):
         job_positions = {}
