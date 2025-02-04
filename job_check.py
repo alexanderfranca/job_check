@@ -5,13 +5,12 @@ import scrapy
 class JobCheckSpider(scrapy.Spider):
     name = "job_check"
 
-    def start_request(self):
-        if len(sys.argv) < 2:
-            print("Usage: scrapy crawl job_check <URL>")
-            return
+    def __init__(self, url=None, *args, **kwargs):
+        super(JobCheckSpider, self).__init__(*args, **kwargs)
+        if url is None:
+            raise ValueError("You must provide a URL using -a url=<URL>")
 
-        url = sys.argv[1]
-        yield scrapy.Request(url, self.parse)
+        self.start_urls = [url]
 
     def parse(self, response):
         job_positions = {}
