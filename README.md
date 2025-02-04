@@ -12,7 +12,7 @@ cp job_check/job_check.py job_check_scrap/job_check_scrap/spiders/
 
 cd job_check_scrap/job_check_scrap/spiders/
 
-scrapy crawl fiotec <URL>
+scrapy crawl job_check <URL>
 
 
 
